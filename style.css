@@ -4,6 +4,15 @@
   padding: 0;
 }
 
+:root
+{
+    --center-background-color: rgba(255, 255, 255, 0.874);
+    --button-color: #6de3b4ba;
+    --button-remove-color: #ea1a1acf;
+    --button-hover: #615f5f00;
+    --button-down-color: #38bdf8;
+}
+
 html,
 body {
   height: 100%;
@@ -16,21 +25,25 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(./library1.jpg);
+  background-position: center;
+  background-size: cover;
 }
 
 .centered {
   padding: 10px;
   height: 50%;
   width: 35%;
-  box-shadow: 0px 0px 6px black;
+  box-shadow: 0px 3px 6px black;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: var(--center-background-color);
 }
 
 .book {
-  border: 2px solid black;
+  border: 2px solid rgba(0, 0, 0, 0.629);
   height: 70%;
   width: 70%;
   display: flex;
@@ -69,10 +82,14 @@ body {
   font-weight: 600;
   width: 170px;
   height: 50px;
-  background-color: #64748b;
+  background-color: var(--button-color);
   color: #f8fafc;
   border-radius: 8px;
   border: 2px solid black;
+}
+
+.btn-container > button:hover {
+    color: var(--button-down-color);
 }
 
 .rm {
@@ -89,16 +106,23 @@ body {
   font-weight: 600;
   width: 100px;
   height: 10%;
-  background-color: red;
+  background-color: var(--button-remove-color);
   color: #f8fafc;
   border-radius: 8px;
-  border: 2px solid black;
+  border: 2px solid rgb(0, 0, 0);
 }
 
 button:hover {
-  background-color: #475569;
+  background-color: var(--button-hover);
 }
+
+
 
 button:active {
   background-color: #232d3d;
 }
+
+.rm > button:hover {
+    color: red;
+}
+
