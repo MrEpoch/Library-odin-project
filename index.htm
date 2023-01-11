@@ -1,41 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Library</title>
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        <div class="centered">
-            <div class="book">
-                <div class="title">
-                    <label for="title">Title: </label>
-                    <input type="text" class="title-text" placeholder="Harry Potter">
-                  </div>
-                  <div class="author">
-                    <label for="author">Author: </label>
-                    <input type="text" class="author-text" placeholder="David Johnson">
-                  </div>
-                  <div class="pages">
-                    <label for="pages">Pages: </label>
-                    <input type="number" class="pages-number">
-                  </div>
-                  <div class="read">
-                    <label for="readed?">Read: </label>
-                    <input type="text" class="read-text">
-                  </div>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="centered">
+      <div class="book">
+        <div class="title">
+          <label for="title">Title: </label>
+          <input type="text" class="title-text" placeholder="Harry Potter" />
         </div>
-        <div class="btn-container">
-          <button type="button" class="btn-display-previus">RESET</button>
-          <button type="button" class="btn-add-new">DISPLAY BOOKS</button>
-          <button type="button" class="btn-display-next">SUBMIT</button>
+        <div class="author">
+          <label for="author">Author: </label>
+          <input type="text" class="author-text" placeholder="David Johnson" />
         </div>
-        <div class="rm"></div>
-        <script src="app.js"></script>
-    </body>
+        <div class="pages">
+          <label for="pages">Pages: </label>
+          <input type="number" class="pages-number" />
+        </div>
+        <div class="read">
+          <label for="readed?">Read: </label>
+          <input type="text" class="read-text" />
+        </div>
+      </div>
+    </div>
+    <div class="btn-container">
+      <button type="button" class="btn-display-previus">
+        <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M12,4C14.1,4 16.1,4.8 17.6,6.3C20.7,9.4 20.7,14.5 17.6,17.6C15.8,19.5 13.3,20.2 10.9,19.9L11.4,17.9C13.1,18.1 14.9,17.5 16.2,16.2C18.5,13.9 18.5,10.1 16.2,7.7C15.1,6.6 13.5,6 12,6V10.6L7,5.6L12,0.6V4M6.3,17.6C3.7,15 3.3,11 5.1,7.9L6.6,9.4C5.5,11.6 5.9,14.4 7.8,16.2C8.3,16.7 8.9,17.1 9.6,17.4L9,19.4C8,19 7.1,18.4 6.3,17.6Z"
+          ></path>
+        </svg>
+      </button>
+      <button type="button" class="btn-add-new">
+        <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M13,12H20V13.5H13M13,9.5H20V11H13M13,14.5H20V16H13M21,4H3A2,2 0 0,0 1,6V19A2,2 0 0,0 3,21H21A2,2 0 0,0 23,19V6A2,2 0 0,0 21,4M21,19H12V6H21"
+          ></path>
+        </svg>
+      </button>
+      <button type="button" class="btn-display-next">
+        <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
+          <path
+            fill="currentColor"
+            d="M14,2L20,8V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V4A2,2 0 0,1 6,2H14M18,20V9H13V4H6V20H18M12,12L16,16H13.5V19H10.5V16H8L12,12Z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+    <div class="rm"></div>
+    <script src="app.js"></script>
+  </body>
 </html>
 
 <!--             <div class="book">
