@@ -1,12 +1,25 @@
-const LocationSelectors = {
-  addORdisplay: document.querySelector(".btn-add-new"),
-  previusORreset: document.querySelector(".btn-display-previus"),
-  nextORsubmit: document.querySelector(".btn-display-next"),
-  book: document.querySelector(".book"),
-  remove: document.querySelector(".rm"),
-};
+// Made by MrEpoch, Library project, practice of objects
+
+// First i made integer number current to keep track of my library objects
+
 let current = 0;
+
+// Then i made myLibrary array, because eslint was screaming at me to make let const then i made myLibrary array const
+
 const myLibrary = [];
+
+// I defined object LocationSelectors which has properties which are locations of buttons and book element
+
+const LocationSelectors = {
+  addORdisplay: document.querySelector(".btn-add-new"), // to write new book or display array of books
+  previusORreset: document.querySelector(".btn-display-previus"), // to previus shown book or reset what is written in input elements
+  nextORsubmit: document.querySelector(".btn-display-next"), // to next book or submit what user has written in input elements
+  book: document.querySelector(".book"), // book element is main element which is in the middle of document
+  remove: document.querySelector(".rm"), // remove book, it is shown when user is not writting
+};
+
+// In "objects" object i have svg icons which are in my buttons
+
 const objects = {
   pen: `<svg style="width:24px;height:24px" viewBox="0 0 24 24">
           <path fill="currentColor" d="M14.1,9L15,9.9L5.9,19H5V18.1L14.1,9M17.7,3C17.5,3 17.2,3.1 17,3.3L15.2,5.1L18.9,8.9L20.7,7C21.1,6.6 21.1,6 20.7,5.6L18.4,3.3C18.2,3.1 17.9,3 17.7,3M14.1,6.2L3,17.2V21H6.8L17.8,9.9L14.1,6.2M7,2V5H10V7H7V10H5V7H2V5H5V2H7Z"></path>
@@ -27,8 +40,10 @@ const objects = {
 
   remove: `<svg style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M13 19C13 20.1 13.3 21.12 13.81 22H6C4.89 22 4 21.11 4 20V4C4 2.9 4.89 2 6 2H7V9L9.5 7.5L12 9V2H18C19.1 2 20 2.89 20 4V13.09C19.67 13.04 19.34 13 19 13C15.69 13 13 15.69 13 19M22.54 16.88L21.12 15.47L19 17.59L16.88 15.47L15.47 16.88L17.59 19L15.47 21.12L16.88 22.54L19 20.41L21.12 22.54L22.54 21.12L20.41 19L22.54 16.88Z"></path>
-          </svg>`
+          </svg>`,
 };
+
+// In BuildingBlocks i made some long writting html elements which will change my html code
 
 const BuildingBlocks = () => {
   const emptyTags = () => {
@@ -73,6 +88,8 @@ const BuildingBlocks = () => {
   return { emptyTags, fullLibrary, write };
 };
 
+// Book constructor holds title, author, pages, read and returns it
+
 function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
@@ -83,12 +100,20 @@ function Book(title, author, pages, read) {
   };
 }
 
+// addBook uses Book constructor here, i used new keyword, which is generally not advised, but i didn't want to change my code that much
+
 function addBook(titleAdd, authorAdd, pagesAdd, readAdd) {
   const id = myLibrary.length;
   myLibrary[id] = new Book(titleAdd, authorAdd, pagesAdd, readAdd);
 }
 
+// addOrdisplay button changes what is shown on the screen, if user writes new book or looks at the books
+
 LocationSelectors.addORdisplay.addEventListener("click", () => {
+  // if user clicked and is shown objects.pen then it will first if be used, it changes icons and user can write new book
+
+  // when else happens, user can see his books which he written, it adds remove button which splices current array element when clicked
+
   if (LocationSelectors.addORdisplay.innerHTML === objects.pen) {
     LocationSelectors.addORdisplay.innerHTML = objects.display;
     LocationSelectors.nextORsubmit.innerHTML = objects.submit;
@@ -120,7 +145,11 @@ LocationSelectors.addORdisplay.addEventListener("click", () => {
   }
 });
 
+// next or submit is changing next book or submits new book to the myLibrary array
+
 LocationSelectors.nextORsubmit.addEventListener("click", () => {
+  // this changes what next book is shown or submits book, condition is long
+
   const title = document.querySelector(".title-text");
   const author = document.querySelector(".author-text");
   const pages = document.querySelector(".pages-number");
@@ -133,19 +162,26 @@ LocationSelectors.nextORsubmit.addEventListener("click", () => {
     read.value = "";
   } else if (
     LocationSelectors.nextORsubmit.innerHTML === objects.next &&
-    myLibrary.length !== 0
+    myLibrary.length !== 0 &&
+    current === myLibrary.length - 1
   ) {
-    const none = 0;
-    if (current === myLibrary.length - 1) {
-      current = 0;
-    } else {
-      current += 1;
-    }
+    current = 0;
+    BuildingBlocks().fullLibrary();
+  } else if (
+    LocationSelectors.nextORsubmit.innerHTML === objects.next &&
+    myLibrary.length !== 0 &&
+    current !== myLibrary.length - 1
+  ) {
+    current += 1;
     BuildingBlocks().fullLibrary();
   }
 });
 
+// previus or reset is changing previus book or resets what user written in adding new book
+
 LocationSelectors.previusORreset.addEventListener("click", () => {
+  // this resets what user has typed when he is writting new book or changes to the previus seen book, condition again is little longer
+
   const title = document.querySelector(".title-text");
   const author = document.querySelector(".author-text");
   const pages = document.querySelector(".pages-number");
@@ -157,14 +193,17 @@ LocationSelectors.previusORreset.addEventListener("click", () => {
     read.value = "";
   } else if (
     LocationSelectors.previusORreset.innerHTML === objects.prev &&
-    myLibrary.length !== 0
+    myLibrary.length !== 0 &&
+    current === 0
   ) {
-    const none = 0;
-    if (current === 0) {
-      current = myLibrary.length - 1;
-    } else {
-      current -= 1;
-    }
+    current = myLibrary.length - 1;
+    BuildingBlocks().fullLibrary();
+  } else if (
+    LocationSelectors.previusORreset.innerHTML === objects.prev &&
+    myLibrary.length !== 0 &&
+    current !== 0
+  ) {
+    current -= 1;
     BuildingBlocks().fullLibrary();
   }
 });
