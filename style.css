@@ -1,17 +1,23 @@
+/* Made by MrEpoch */
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* most of colors used are in :root here */
+
 :root {
-  --center-background-color: rgba(255, 255, 255, 0.874);
+  --center-background-color: rgba(255, 255, 255, 0.771);
   --button-color: #6de3b4ba;
   --button-remove-color: #ea1a1acf;
   --button-hover: #615f5f00;
   --button-down-color: #38bdf8;
   --button-active: #164e6376;
 }
+
+/* Font family is in html, body */
 
 html,
 body {
@@ -21,6 +27,8 @@ body {
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+/* Body is flex container, everything is centered */
+
 body {
   display: flex;
   justify-content: center;
@@ -29,6 +37,8 @@ body {
   background-position: center;
   background-size: cover;
 }
+
+/* In .Centered div is everything it is simply for little design */
 
 .centered {
   padding: 10px;
@@ -42,6 +52,8 @@ body {
   background-color: var(--center-background-color);
 }
 
+/* In book i have my inputs or books which user typed in, it is flex with little see through border, it is flex-direction column and justify-content: space-around */
+
 .book {
   border: 2px solid rgba(0, 0, 0, 0.629);
   height: 70%;
@@ -52,9 +64,13 @@ body {
   padding: 8px;
 }
 
+/* Third input has width: 15%; of parent element */
+
 .pages > input {
   width: 15%;
 }
+
+/* first two input has width: 55%; of parent, they are display block */
 
 .title > input,
 .author > input {
@@ -62,10 +78,14 @@ body {
   width: 55%;
 }
 
+/* read input has width: 30%; and is inline block  */
+
 .read > input {
   display: inline-block;
   width: 30%;
 }
+
+/* btn container is flex with justify-content space-between and positin absolute at the bottom */
 
 .btn-container {
   bottom: 50px;
@@ -76,6 +96,8 @@ body {
   justify-content: space-between;
   position: absolute;
 }
+
+/* Each button in btn-container has arial text with 600 font-weight and color in :root width is 170px */
 
 .btn-container > button {
   font-family: Arial, Helvetica, sans-serif;
@@ -88,9 +110,13 @@ body {
   border: 2px solid black;
 }
 
+/* Color blue which is shown when button is hovered is defined in :root */
+
 .btn-container > button:hover {
   color: var(--button-down-color);
 }
+
+/* Rm div is at the top, position absolute and flex with centered everything */
 
 .rm {
   width: 10%;
@@ -99,6 +125,8 @@ body {
   justify-content: center;
   position: absolute;
 }
+
+/* Button color in :root defined, it has width 80px and border radius 8px */
 
 .rm > button {
   top: 30px;
@@ -112,13 +140,19 @@ body {
   border: 2px solid rgb(0, 0, 0);
 }
 
+/* When hovered button is hovered on it will turn transparent */
+
 button:hover {
   background-color: var(--button-hover);
 }
 
+/* On activation it will show little transparent blue */
+
 button:active {
   background-color: var(--button-active);
 }
+
+/* When remove button is hovered on it will turn red */
 
 .rm > button:hover {
   color: red;

@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Library</title>
+    <!-- Loading css -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Inside of centered i have main content of my page, except buttons which have position absolute -->
     <div class="centered">
+      <!-- Inside of book i have either book info or input tags for new book, it is changed through JavaScript -->
       <div class="book">
         <div class="title">
           <label for="title">Title: </label>
@@ -28,6 +31,7 @@
         </div>
       </div>
     </div>
+    <!-- Inside of button container i have buttons which are at the bottom -->
     <div class="btn-container">
       <button type="button" class="btn-display-previus">
         <svg style="width: 24px; height: 24px" viewBox="0 0 24 24">
@@ -54,14 +58,9 @@
         </svg>
       </button>
     </div>
+    <!-- Inside of rm will be my button for removing page in info -->
     <div class="rm"></div>
+    <!-- Loading JavaScript -->
     <script src="app.js"></script>
   </body>
 </html>
-
-<!--             <div class="book">
-                <h4 class="title">title: </h4>
-                <h4 class="author">author: </h4>
-                <h4 class="pages">pages: </h4>
-                <h4 class="read">read: </h4>
-            </div> -->
